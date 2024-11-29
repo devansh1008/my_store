@@ -14,7 +14,7 @@ const Nav: React.FC = () => {
   return (
     <>
       <nav className="fixed h-[10vh] bg-[#061a3c] flex gap-10 text-white w-full items-center justify-between font-Poppins p-4 px-[3vw] z-[99999] mb-3 cursor-pointer">
-        <div className="sm:flex hidden  gap-4 items-center">
+        <div className="sm:flex hidden  gap-7 items-center">
           <div
             onClick={() => {
               navigate("/"), setrespoNavSlide(false);
@@ -23,10 +23,13 @@ const Nav: React.FC = () => {
           >
             Home
           </div>
-          <div>About</div>
-          <div>Delivery</div>
-          <div>Blog</div>
-          <div>Support</div>
+          <div
+            onClick={() => {
+              navigate("/cart"), setrespoNavSlide(false);
+            }}
+          >
+            Cart
+          </div>
         </div>
         <div className="font-bold text-2xl sm:mr-24 flex items-center gap-4">
           <div className="sm:hidden block">
@@ -54,16 +57,8 @@ const Nav: React.FC = () => {
         </div>
         <div className="flex gap-4 items-center ">
           <div className="sm:scale-125">
-            <IoSearch />
-          </div>
-          <div className="sm:scale-125">
             <a href="/cart" className=" no-underline">
               <GrCart />
-            </a>
-          </div>
-          <div className="sm:scale-125">
-            <a href="/login" className=" no-underline">
-              <CgProfile />
             </a>
           </div>
         </div>
@@ -80,9 +75,7 @@ const Nav: React.FC = () => {
                   onClick={() => {
                     navigate("/"), setrespoNavSlide(false);
                   }}
-                  className={`block py-2  pt-5 px-7  text-gray-400 cursor-pointer ${
-                    location.pathname === "/" ? "text-white" : "text-gray-400"
-                  }`}
+                  className={`block py-2  pt-5 px-7  text-gray-400 cursor-pointer  `}
                   aria-current="page"
                 >
                   Home
@@ -91,29 +84,13 @@ const Nav: React.FC = () => {
               <li>
                 <div
                   onClick={() => {
-                    navigate("/courses"), setrespoNavSlide(false);
+                    navigate("/cart"), setrespoNavSlide(false);
                   }}
-                  className={`block py-2 px-7  ${
-                    location.pathname === "/courses"
-                      ? "text-white"
-                      : "text-gray-400"
-                  } cursor-pointer `}
+                  className={`block py-2  pt-5 px-7  text-gray-400 cursor-pointer  `}
+                  aria-current="page"
                 >
-                  Courses
+                  Cart
                 </div>
-              </li>
-              <li>
-                <a
-                  href="https://forms.gle/YSxtwB1JFjuEsbSr5"
-                  className="block py-2 px-7 text-gray-400 cursor-pointer"
-                >
-                  Enroll Now
-                </a>
-              </li>
-              <li>
-                <a href="#" className="block py-[1px] px-7 text-gray-400">
-                  {/* Services */}
-                </a>
               </li>
             </ul>
           </div>
