@@ -5,12 +5,15 @@ import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import ProductDetail from "./pages/ProductDetail";
 import Cart from "./pages/Cart";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { CartProvider } from "./context/CartContext";
 
 const App: React.FC = () => {
   return (
     <CartProvider>
       <Router>
+        <ToastContainer position="bottom-right" theme="dark" />
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />

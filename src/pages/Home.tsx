@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useSearchParams, Link } from "react-router-dom";
-import ProductGallery from "../components/ProductGallery";
 
 interface Product {
   id: number;
@@ -17,7 +16,6 @@ const Home = () => {
   const category = searchParams.get("category") || "";
 
   useEffect(() => {
-    // Fetch categories for the filter dropdown
     axios
       .get("https://fakestoreapi.com/products/categories")
       .then((response) => {
@@ -26,10 +24,12 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    // Fetch products based on the selected category
     const fetchProducts = async () => {
       let url = "https://fakestoreapi.com/products";
-      if (category !== "All_Categories") {
+
+      if (!category) {
+        url = "https://fakestoreapi.com/products";
+      } else if (category !== "All_Categories") {
         url = `https://fakestoreapi.com/products/category/${category}`;
       } else {
         url = "https://fakestoreapi.com/products";
@@ -42,16 +42,11 @@ const Home = () => {
   }, [category]);
 
   const handleCategoryChange = (selectedCategory: string) => {
-    setSearchParams({ category: selectedCategory }); // Update the category in the URL
+    setSearchParams({ category: selectedCategory });
   };
 
   return (
     <div className="text-black min-h-[100vh] w-full">
-      {/* /----banner --- */}
-
-      <ProductGallery />
-      {/* ------------- */}
-
       <div className="w-full bg-white flex items-center gap-7 pl-7 py-4">
         <select
           value={category}
