@@ -1,16 +1,12 @@
 import React, { useState } from "react";
-import { IoSearch } from "react-icons/io5";
 import { GrCart } from "react-icons/gr";
-import { CgProfile } from "react-icons/cg";
 import { MdOutlineCancel } from "react-icons/md";
 import { RiMenu3Fill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
-import { useLocation } from "react-router-dom";
 
 const Nav: React.FC = () => {
   const [respoNavSlide, setrespoNavSlide] = useState(false);
   const navigate = useNavigate();
-  const location = useLocation();
   return (
     <>
       <nav className="fixed h-[10vh] bg-[#061a3c] flex gap-10 text-white w-full items-center justify-between font-Poppins p-4 px-[3vw] z-[99999] mb-3 cursor-pointer">
