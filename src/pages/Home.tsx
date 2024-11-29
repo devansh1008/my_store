@@ -65,7 +65,9 @@ const Home = () => {
           ))}
         </select>
       </div>
-
+      <div className="page-header text-center py-4">
+        <h1 className="text-4xl font-bold">Welcome to Our Store</h1>
+      </div>
       <div className="grid sm:grid-cols-4 grid-cols-1 gap-10 w-full place-items-center sm:px-[1vw] py-[7vh]">
         {products?.map((product, idx) => (
           <>
