@@ -1,4 +1,4 @@
-Steps to open project
+Steps to open project and run
 
 1.  clone the repo
 
